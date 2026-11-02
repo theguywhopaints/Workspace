@@ -38,14 +38,14 @@ header.nav .wrap{display:flex;align-items:center;gap:28px;height:56px}
 .links a{color:var(--muted)}
 .links a:hover{color:var(--text);text-decoration:none}
 .links a.btn-primary,.links a.btn-primary:hover{color:#fff}
-.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:12px 22px;font-weight:600;font-size:16px;border:0;cursor:pointer;transition:transform .15s,filter .15s}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:12px 22px;font-weight:600;font-size:16px;border:0;cursor:pointer;transition:transform .15s,filter .15s}
 .btn:hover{text-decoration:none;filter:brightness(1.06)}
 .btn:active{transform:scale(.98)}
 .btn-primary{background:var(--accent);color:#fff}
 .btn-soft{background:var(--accent-soft);color:var(--accent)}
 .btn-sm{padding:7px 14px;font-size:14px}
 .btn svg{width:18px;height:18px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
-@media (max-width:760px){.links a:not(.btn){display:none}}
+@media (max-width:760px){.links a:not(.btn),.links .btn-soft{display:none}}
 
 /* hero */
 .hero{text-align:center;padding-top:88px;padding-bottom:40px}
@@ -109,6 +109,12 @@ ul.ticks li::before{content:"";position:absolute;left:0;top:3px;width:19px;heigh
 code{font:14px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--bg2);padding:2px 6px;border-radius:6px}
 .alt code{background:var(--card)}
 
+.dl{text-align:center;max-width:760px;margin:0 auto;background:var(--card);border:.5px solid var(--line);border-radius:28px;padding:56px 32px}
+.dl-ico{width:56px;height:56px;border-radius:16px;background:linear-gradient(180deg,#3B9BFF,#007AFF);display:grid;place-items:center;margin:0 auto 22px}
+.dl-ico svg{width:28px;height:28px;stroke:#fff;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.dl-notes{list-style:none;padding:0;margin:26px 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;font-size:14px;color:var(--muted)}
+.dl-notes li::before{content:"✓ ";color:var(--green);font-weight:700}
+.btn[aria-busy="true"]{opacity:.6;pointer-events:none}
 /* faq */
 details{border-bottom:.5px solid var(--line);padding:20px 0}
 details summary{cursor:pointer;font-weight:600;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
@@ -136,6 +142,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
       <a href="#start">Get started</a>
       <a href="#faq">FAQ</a>
       <a class="gh" href="#" data-gh>GitHub</a>
+      <a class="btn btn-soft btn-sm" href="app/" download="workspace.html" data-download><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download</a>
       <a class="btn btn-primary btn-sm" href="app/">Open the app</a>
     </nav>
   </div>
@@ -148,7 +155,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
     <p class="lede">Workspace is one app for the people who keep an organisation running. A document register, a policy register, marketing stock control and a task planner, all in a single file that runs in your browser.</p>
     <div class="cta">
       <a class="btn btn-primary" href="app/">Open Workspace <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn btn-soft" href="app/index.html" download="workspace.html"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download the file</a>
+      <a class="btn btn-soft" href="app/" download="workspace.html" data-download><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download for free</a>
     </div>
     <p class="note">Works in any modern browser. Your data never leaves your device.</p>
     <div class="hero-shot shot reveal">
@@ -314,10 +321,26 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
         <h2>Get started in a minute.</h2>
       </div>
       <div class="steps reveal">
-        <div class="card step"><h3>Open it</h3><p>Use the hosted version with <a href="app/">Open the app</a>, or <a href="app/index.html" download="workspace.html">download the file</a> and double-click it.</p></div>
+        <div class="card step"><h3>Open it</h3><p>Use the hosted version with <a href="app/">Open the app</a>, or <a href="app/" download="workspace.html" data-download>download the file</a> and double-click it.</p></div>
         <div class="card step"><h3>Add your first records</h3><p>Create a document or task, or go to <b>Policy register</b> and load the sample framework to see how it works.</p></div>
         <div class="card step"><h3>Bring your data in</h3><p>Import your existing policy spreadsheet, then add stock items and people as you go.</p></div>
         <div class="card step"><h3>Back it up</h3><p>Use <b>Download full backup</b> in the sidebar now and then. It's your safety net if you clear your browser.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="download">
+    <div class="wrap">
+      <div class="dl reveal">
+        <div class="dl-ico"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></div>
+        <h2>Download it and start using it today.</h2>
+        <p class="lede" style="margin:0 auto 28px">One file, about 400&nbsp;KB. Save it anywhere, double-click to open it in your browser, and you're ready. No install, no account.</p>
+        <a class="btn btn-primary" href="app/" download="workspace.html" data-download><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download workspace.html</a>
+        <ul class="dl-notes">
+          <li>Works in Chrome, Edge, Safari and Firefox</li>
+          <li>Your data is saved in the browser you open it in</li>
+          <li>Use <b>Download full backup</b> in the sidebar to keep a copy</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -342,6 +365,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
       <p class="lede">Free, private and ready when you are.</p>
       <div class="cta">
         <a class="btn btn-primary" href="app/">Open Workspace <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-soft" href="app/" download="workspace.html" data-download><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download for free</a>
         <a class="btn btn-soft" href="#" data-gh><svg viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>View source on GitHub</a>
       </div>
     </div>
@@ -370,6 +394,26 @@ var REPO_URL = "";
   document.querySelectorAll("[data-gh]").forEach(function (a) {
     if (url) { a.href = url; a.target = "_blank"; a.rel = "noopener"; }
     else a.style.display = "none";
+  });
+
+  // download the app as a single file
+  document.querySelectorAll("[data-download]").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      if (!window.fetch || !window.Blob || !window.URL) return; // fall back to the plain link
+      e.preventDefault();
+      a.setAttribute("aria-busy", "true");
+      fetch(new URL("app/", location.href).href, { cache: "no-cache" })
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+        .then(function (html) {
+          var url = URL.createObjectURL(new Blob([html], { type: "text/html" }));
+          var t = document.createElement("a");
+          t.href = url; t.download = "workspace.html";
+          document.body.appendChild(t); t.click(); t.remove();
+          setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+        })
+        .catch(function () { location.href = "app/"; })
+        .then(function () { a.removeAttribute("aria-busy"); });
+    });
   });
 
   // screenshot tabs
